@@ -1,0 +1,8 @@
+- id: format-precice-config
+  name: format preCICE configuration files
+  description: applies the cannonical format for preCICE configuration files
+  entry: format-precice-config
+  language: python
+  types: ["file", "text"]
+  files: \.xml$
+  require_serial: false
