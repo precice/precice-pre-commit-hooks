@@ -29,5 +29,18 @@ You may need to exclude directories using `exclude`.
 
 ### format-precice-config
 
-Formats given preCICE configuration files.
-Returns 0 on success, 1 on error, and 2 if a file was modified.
+Formats given preCICE configuration files. You can use this script standalone, overwriting each file, as:
+
+```shell
+format_precice_config.py precice-config.xml
+```
+
+The script returns 0 on success, 1 on error, and 2 if a file was modified.
+
+You may want to define an alias for convenience:
+
+```shell
+function preciceConfigFormat(){
+  /path/to/format_precice_config.py "${1:-precice-config.xml}"
+}
+```
