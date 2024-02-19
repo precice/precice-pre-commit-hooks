@@ -6,3 +6,11 @@
   types: ["file", "text"]
   files: \.xml$
   require_serial: false
+- id: check-image-prefix
+  name: checks image prefix for website integration
+  description: checks images to have the given prefix  
+  entry: check-image-prefix
+  language: python
+  types: ["file", "image"]
+  files: ".*/images/.*"
+  require_serial: false
