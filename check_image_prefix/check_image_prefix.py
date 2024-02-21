@@ -6,7 +6,7 @@ import argparse
 
 
 def main():
-    parser = argparse.ArgumentParser(exit_on_error=True)
+    parser = argparse.ArgumentParser()
     parser.add_argument('--prefix', required=True)
     parser.add_argument('files', nargs="+")
     args = parser.parse_args()
