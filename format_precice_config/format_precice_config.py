@@ -7,6 +7,7 @@ import sys
 import io
 import shutil
 
+CONVERGENCE_MEASURE_TAGS = ['relative-convergence-measure', 'absolute-convergence-measure', 'absolute-or-relative-convergence-measure']
 
 def isEmptyTag(element):
     return not element.getchildren()
@@ -224,7 +225,7 @@ class PrettyPrinter():
                 # Sort children of coupling-scheme
                 sorted_scheme_children = sorted(
                     group.getchildren(),
-                    key=lambda child: 0 if str(child.tag) == 'relative-convergence-measure' else 
+                    key=lambda child: 0 if str(child.tag) in CONVERGENCE_MEASURE_TAGS else 
                                       1 if str(child.tag) == 'exchange' else 2
                 )
                 
@@ -238,7 +239,7 @@ class PrettyPrinter():
                     tag = str(child.tag)
                     if tag == 'exchange':
                         exchange_elements.append(child)
-                    elif tag == 'relative-convergence-measure':
+                    elif tag in CONVERGENCE_MEASURE_TAGS:
                         convergence_elements.append(child)
                     elif tag.startswith('acceleration:'):
                         acceleration_elements.append(child)
