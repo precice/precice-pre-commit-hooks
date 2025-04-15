@@ -41,7 +41,7 @@ class PrettyPrinter():
                  stream=sys.stdout,
                  indent='  ',
                  maxwidth=100,
-                 maxgrouplevel=2):
+                 maxgrouplevel=1):
         self.stream = stream
         self.indent = indent
         self.maxwidth = maxwidth

@@ -19,6 +19,9 @@ Add this to your `.pre-commit-config.yaml` in the root of your project:
     hooks:
     -   id: format-precice-config
         exclude: '^thridparty' # optionally exclude directories here
+    -   id: check-image-prefix
+        files: 'docs/images/.*'
+        args: [ --prefix=docs-myspecialcomponent- ]
 ```
 
 **Note:**
@@ -44,3 +47,12 @@ function preciceConfigFormat(){
   /path/to/format_precice_config.py "${1:-precice-config.xml}"
 }
 ```
+
+### check-image-prefix
+
+This hook is only relevant for repositories integrated into [the website](https://github.com/precice/precice.github.io)
+
+Checks if given images have the requested prefix.
+Only takes images into account that are inside a folder called `images/`.
+Pass the prefix to the hook by defining `args: [ --prefix=my-prefix- ]`.
+Returns 0 on success, 1 on incorrect prefix.
