@@ -2,6 +2,8 @@
 
 This repo contains [pre-commit](https://github.com/pre-commit/pre-commit) hooks for [preCICE](https://github.com/precice/precice).
 
+The `format-precice-config` was moved into a separate repository [precice/config-format](https://github.com/precice/config-format).
+
 ## Versioning of this repo
 
 Hooks cover a major version of preCICE.
@@ -17,8 +19,6 @@ Add this to your `.pre-commit-config.yaml` in the root of your project:
 -   repo: https://github.com/precice/precice-pre-commit-hooks
     rev: ''  # Use the tag you want to use
     hooks:
-    -   id: format-precice-config
-        exclude: '^thridparty' # optionally exclude directories here
     -   id: check-image-prefix
         files: 'docs/images/.*'
         args: [ --prefix=docs-myspecialcomponent- ]
@@ -29,11 +29,6 @@ The hook will treat every `.xml` file as a preCICE configuration file.
 You may need to exclude directories using `exclude`.
 
 ## Hooks
-
-### format-precice-config
-
-Formats given preCICE configuration files.
-Returns 0 on success, 1 on error, and 2 if a file was modified.
 
 ### check-image-prefix
 
